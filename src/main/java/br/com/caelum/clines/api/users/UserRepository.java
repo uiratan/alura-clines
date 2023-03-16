@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.data.repository.Repository;
 
-import br.com.caelum.clines.shared.domain.Aircraft;
 import br.com.caelum.clines.shared.domain.User;
 
 public interface UserRepository extends Repository<User, Long> {
@@ -15,5 +14,7 @@ public interface UserRepository extends Repository<User, Long> {
 	Collection<User> findAll();
 	
 	void save(User user);
+
+	Optional<User> findById(Long id);
 
 }

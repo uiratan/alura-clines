@@ -1,7 +1,6 @@
 package br.com.caelum.clines.api.users;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 
 @Getter

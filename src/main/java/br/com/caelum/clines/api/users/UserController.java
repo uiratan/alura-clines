@@ -9,6 +9,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,11 @@ public class UserController {
         return service.findAll();
     }
 
+    @GetMapping("{id}")
+    UserView show(@PathVariable Long id) {
+        return service.showUserBy(id);
+    }
+    
     @PostMapping
     ResponseEntity<?> createBy(@RequestBody @Valid UserForm form) {
         var id = service.createUserBy(form);

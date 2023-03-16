@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import br.com.caelum.clines.shared.exceptions.ResourceAlreadyExistsException;
+import br.com.caelum.clines.shared.exceptions.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -32,5 +33,12 @@ public class UserService {
 
         return user.getId();
     }
+
+	public UserView showUserBy(Long id) {
+		var user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Cannot find user"));
+
+        return viewMapper.map(user);
+
+	}
 
 }
